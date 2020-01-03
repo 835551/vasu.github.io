@@ -78,3 +78,10 @@ text-align: left;
 a{
 	color: #0d0d0c;
 }
+.head2{
+     margin-left: 350px;
+     font-size: 15pt;
+     padding: 30px;
+     width: 800;
+     color: #f2f2ed;
+}

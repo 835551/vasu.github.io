@@ -1,4 +1,7 @@
-<!doctupe html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
  <html>
    <head>
    <title>Menu Item List</title>
@@ -8,11 +11,11 @@
        <header >
          <span id="head" >trueYum</span>
 		 <img  src="./images/truyum-logo-dark.png" />
-		 <a id="menu" href="./menu-item-list-admin.html">Menu</a>
+		 <a id="menu" href="ShowMenuItemListAdmin">Menu</a>
        </header>
 	   <div>
 	     <h3 class="cont"> Edit Menu status</h3>
-	     <h4 id="pvr4">Menu Item details saved successfully</h4>
+	     <h4 id="pvr4">${msg}</h4>
 	   </div>
    <footer id="foot"> 
          <h3>Copyright @ 2019</h3>

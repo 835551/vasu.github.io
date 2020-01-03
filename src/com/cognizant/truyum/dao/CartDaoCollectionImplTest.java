@@ -26,15 +26,19 @@ public class CartDaoCollectionImplTest {
 	 }
  }
  public static void testRemoveCartItem() throws CartEmptyException {
-	 System.out.println("Item List for Customer after remove");
-	 CartDao cartDao= new CartDaoCollectionImpl();
-	 
-	 cartDao.addCartItem(1,2L);
-	 cartDao.addCartItem(2,4L);
-	 List<MenuItem> menuItemListCustomer = cartDao.getAllCartItems(1);
-	 for(MenuItem menuItem: menuItemListCustomer) {
-		 System.out.println(menuItem);
-	 }
+	 CartDao cartDao = new CartDaoCollectionImpl();
+     System.out.println("Item List for Customer after Remove");
+     try {
+            cartDao.removeCartItems(1, 2L);
+            cartDao.removeCartItems(1, 5L);
+            List<MenuItem> menuItemListCustomer = cartDao.getAllCartItems(1);
+            for (MenuItem menuItem : menuItemListCustomer) {
+                  System.out.println(menuItem);
+            }
+     } catch (CartEmptyException e) {
+            System.out.println(e.getMessage());
+     }
+
 		 
 	 }
 	 public static void testAllCartItem() throws CartEmptyException {

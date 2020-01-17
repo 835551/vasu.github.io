@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.cognizant.truyum.dao.MenuItemDao;
 import com.cognizant.truyum.dao.MenuItemDaoCollectionImpl;
+import com.cognizant.truyum.dao.MenuItemDaoSqlImpl;
 import com.cognizant.truyum.model.MenuItem;
 
 /**
@@ -34,16 +35,12 @@ public class ShowEditMenuItemServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		try {
-			MenuItemDao menuItemDao=new MenuItemDaoCollectionImpl();
-			int id=Integer.parseInt(request.getParameter("menuItemId"));
-			MenuItem menuItem=menuItemDao.getMenuItem(id);
-			request.setAttribute("menuItem", menuItem);
-			RequestDispatcher rd=request.getRequestDispatcher("edit-menu-item.jsp"); 
-			rd.forward(request,response);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
+		MenuItemDao menuItemDao=new MenuItemDaoSqlImpl();
+		int id=Integer.parseInt(request.getParameter("menuItemId"));
+		MenuItem menuItem=menuItemDao.getMenuItem(id);
+		request.setAttribute("menuItem", menuItem);
+		RequestDispatcher rd=request.getRequestDispatcher("edit-menu-item.jsp"); 
+		rd.forward(request,response);
 	}
 
 	/**
